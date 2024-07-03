@@ -9,9 +9,20 @@ import SwiftUI
 
 @main
 struct Friend_Watch_AppApp: App {
+    /// good info for state management
+    /// https://stackoverflow.com/questions/71244103/mvvm-passing-data-from-view-to-another-views-viewmodel/71244581#71244581
+    @StateObject var userState = UserState()
+    @StateObject var recorder = Recorder()
+    @StateObject var servHandler = ServerHandler()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationView {
+                ContentView()
+                    .environmentObject(userState)
+                    .environmentObject(recorder)
+                    .environmentObject(servHandler)
+            }
         }
     }
 }

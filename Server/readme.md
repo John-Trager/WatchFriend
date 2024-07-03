@@ -1,0 +1,36 @@
+
+## running jobs
+
+we have jobs for processing audio files and running ML/ other tasks (or that is the plan LOL)
+
+- https://flask.palletsprojects.com/en/2.3.x/patterns/celery/
+
+
+run celery worker like (make sure broker is running - rabbitmq in our case)
+```
+celery -A main worker --loglevel=INFO
+```
+
+
+
+- use RabitMQ as the broker for Celery (which handles our jobs for data processing)
+    - install on mac using `brew install rabbitmq`  
+
+start rabbittmq service using:
+```
+# starts a local RabbitMQ node
+brew services start rabbitmq
+
+# highly recommended: enable all feature flags on the running node
+/opt/homebrew/sbin/rabbitmqctl enable_feature_flag all
+```
+
+end rabbittmq service 
+```
+# stops the locally running RabbitMQ node
+brew services stop rabbitmq
+```
+
+## audio to text
+using openai whisper but locally
+https://github.com/openai/whisper
