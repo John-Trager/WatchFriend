@@ -5,6 +5,8 @@ env/
 # excluded file types
 *.txt
 *.m4a
+*.wav
+*.mp3
 
 # --- swift stuff ---
 

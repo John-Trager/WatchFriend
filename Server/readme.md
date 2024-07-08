@@ -34,3 +34,12 @@ brew services stop rabbitmq
 ## audio to text
 using openai whisper but locally
 https://github.com/openai/whisper
+
+
+## pyannote
+
+needs the files in .wav format so we need to use pydub that uses ffmpeg and ffprobe to convert the file. Maybe there is a better way but this should work for now.
+
+## WhisperX
+To get this to work we need to build CTranslate2 from source with the `-DWITH_ACCELERATE=ON` flag.
+- see https://opennmt.net/CTranslate2/installation.html and https://github.com/SYSTRAN/faster-whisper/issues/515
